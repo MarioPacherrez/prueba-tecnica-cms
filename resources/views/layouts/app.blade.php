@@ -7,6 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>@yield('title', 'Inicio')</title>
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
@@ -31,7 +33,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Usuarios</a>
+                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Categorías</a>

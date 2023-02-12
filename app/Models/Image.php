@@ -14,4 +14,9 @@ class Image extends Model
     protected $collection = 'images';
     protected $primaryKey = 'id_image';
     protected $fillable = ['image_name','fk_article'];
+
+    public function article()
+    {
+        return $this->belongsTo(Article::class, 'fk_article', 'id_article');
+    }
 }

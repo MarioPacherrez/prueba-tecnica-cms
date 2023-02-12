@@ -14,4 +14,9 @@ class Category extends Model
     protected $collection = 'categories';
     protected $primaryKey = 'id_category';
     protected $fillable = ['name'];
+
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class, null, 'fk_category', 'fk_article');
+    }
 }

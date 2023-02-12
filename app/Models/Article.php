@@ -21,6 +21,21 @@ class Article extends Model
     protected $primaryKey = 'id_article';
     protected $fillable = ['title','content','status'];
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, null, 'fk_article', 'user_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, null, 'fk_article', 'fk_category');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'fk_article', 'id_article');
+    }
+
     public function sluggable(): array
     {
         return [

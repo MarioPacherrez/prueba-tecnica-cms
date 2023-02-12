@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Web\UserController;
+use App\Http\Controllers\Web\CategoryController;
+use App\Http\Controllers\Web\ArticleController;
+use App\Http\Controllers\Web\ImageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +25,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('users', UserController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('articles', ArticleController::class);
+    // Route::resource('users', ImageController::class);
+    Route::get('images', [ImageController::class, 'index'])->name('images.index');
+});
