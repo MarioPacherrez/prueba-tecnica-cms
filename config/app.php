@@ -196,6 +196,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Otros
+         */
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
     ],
 
     /*
