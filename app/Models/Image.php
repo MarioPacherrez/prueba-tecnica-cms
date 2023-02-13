@@ -12,11 +12,11 @@ class Image extends Model
 
     protected $connection = 'mongodb';
     protected $collection = 'images';
-    protected $primaryKey = 'id_image';
+    // protected $primaryKey = 'id_image';
     protected $fillable = ['image_name','fk_article'];
 
     public function article()
     {
-        return $this->belongsTo(Article::class, 'fk_article', 'id_article');
+        return $this->belongsTo(Article::class, 'fk_article', 'id');
     }
 }

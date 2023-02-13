@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Laracasts\Flash\Flash;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = User::orderBy('id', 'ASC')->get();
+        $users = User::orderBy('created_at', 'DESC')->paginate(10);
         return view('admin.users.index')->with('users', $users);
     }
 
@@ -25,6 +26,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
+        flash('Se ha registrado al usuario: '.$user->name.' de forma exitosa!', 'success')->important();
         return redirect()->route('users.index');
     }
 

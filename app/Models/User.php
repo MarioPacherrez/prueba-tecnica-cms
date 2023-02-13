@@ -45,6 +45,6 @@ class User extends Authenticatable
 
     public function articles()
     {
-        return $this->belongsToMany(Article::class, null, 'user_id', 'fk_article');
+        return $this->belongsToMany(Article::class, null, 'user_ids', 'article_ids');
     }
 }

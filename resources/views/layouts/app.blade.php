@@ -36,13 +36,13 @@
                             <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Categorías</a>
+                            <a class="nav-link" href="{{ route('categories.index') }}">Categorías</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Artículos</a>
+                            <a class="nav-link" href="{{ route('articles.index') }}">Artículos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Imágenes</a>
+                            <a class="nav-link" href="{{ route('images.index') }}">Imágenes</a>
                         </li>
                     </ul>
 
@@ -86,8 +86,20 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        @include('flash::message')
+                    </div>
+                </div>
+            </div>
+
             @yield('content')
         </main>
     </div>
+
+    {{--<script>
+        $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    </script>--}}
 </body>
 </html>

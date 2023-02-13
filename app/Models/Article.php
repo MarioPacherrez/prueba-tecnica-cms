@@ -18,17 +18,18 @@ class Article extends Model
 
     protected $connection = 'mongodb';
     protected $collection = 'articles';
-    protected $primaryKey = 'id_article';
+    // protected $primaryKey = 'id_article';
     protected $fillable = ['title','content','status'];
 
     public function users()
     {
-        return $this->belongsToMany(User::class, null, 'fk_article', 'user_id');
+        return $this->belongsToMany(User::class, null, 'article_ids', 'user_ids');
     }
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, null, 'fk_article', 'fk_category');
+        // return $this->belongsToMany(Category::class, null, 'fk_article', 'fk_category');
+        return $this->belongsToMany(Category::class, null, 'article_ids', 'category_ids');
     }
 
     public function images()

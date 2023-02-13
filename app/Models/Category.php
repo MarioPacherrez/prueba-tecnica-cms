@@ -12,11 +12,11 @@ class Category extends Model
 
     protected $connection = 'mongodb';
     protected $collection = 'categories';
-    protected $primaryKey = 'id_category';
+    // protected $primaryKey = 'id';
     protected $fillable = ['name'];
 
     public function articles()
     {
-        return $this->belongsToMany(Article::class, null, 'fk_category', 'fk_article');
+        return $this->belongsToMany(Article::class, null, 'category_ids', 'article_ids');
     }
 }

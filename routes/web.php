@@ -31,6 +31,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UserController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('articles', ArticleController::class);
-    // Route::resource('users', ImageController::class);
     Route::get('images', [ImageController::class, 'index'])->name('images.index');
 });

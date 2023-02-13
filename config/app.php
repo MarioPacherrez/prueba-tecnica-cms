@@ -200,6 +200,7 @@ return [
          * Otros
          */
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
     ],
 
     /*
