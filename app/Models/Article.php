@@ -19,7 +19,7 @@ class Article extends Model
     protected $connection = 'mongodb';
     protected $collection = 'articles';
     // protected $primaryKey = 'id_article';
-    protected $fillable = ['title','content','status'];
+    protected $fillable = ['title','content','status', 'slug'];
 
     public function users()
     {
